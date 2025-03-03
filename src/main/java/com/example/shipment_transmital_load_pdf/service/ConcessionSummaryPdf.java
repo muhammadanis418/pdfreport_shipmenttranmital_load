@@ -1,5 +1,8 @@
+/*
+ * @deprecated: This code is currently not in use but is retained for future reference or potential use.
+ * @reason: It may be required later.
+ */
 //package com.example.shipment_transmital_load_pdf.service;
-//
 //import com.itextpdf.io.exceptions.IOException;
 //import com.itextpdf.io.image.ImageData;
 //import com.itextpdf.io.image.ImageDataFactory;
@@ -11,40 +14,6 @@
 //import com.itextpdf.layout.properties.HorizontalAlignment;
 //import com.itextpdf.layout.properties.TextAlignment;
 //import com.itextpdf.layout.properties.UnitValue;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import java.io.ByteArrayOutputStream;
-//import java.io.File;
-//import java.io.FileOutputStream;
-//import java.net.MalformedURLException;
-//import java.time.LocalDateTime;
-//import java.time.format.DateTimeFormatter;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.stream.Collectors;
-//
-//public class ConcessionSummaryPdf {
-//
-//    package com.target.services;
-//
-//import com.itextpdf.io.exceptions.IOException;
-//import com.itextpdf.io.image.ImageData;
-//import com.itextpdf.io.image.ImageDataFactory;
-//import com.itextpdf.kernel.colors.ColorConstants;
-//import com.itextpdf.kernel.pdf.PdfDocument;
-//import com.itextpdf.kernel.pdf.PdfWriter;
-//import com.itextpdf.layout.Document;
-//import com.itextpdf.layout.element.*;
-//import com.itextpdf.layout.properties.HorizontalAlignment;
-//import com.itextpdf.layout.properties.TextAlignment;
-//import com.itextpdf.layout.properties.UnitValue;
-//import com.target.external.services.impl.FileServiceExt;
-//import com.target.util.ConcessionSummary;
-//import org.json.JSONArray;
-//import org.json.JSONObject;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +37,7 @@
 //        @Autowired
 //        private FileServiceExt fileServiceExt;
 //
-//        private static final Logger logger = LoggerFactory.getLogger(ConcessionSummaryService.class);
+//        private static final Logger logger = LoggerFactory.getLogger(ConcessionSummaryPdf.class);
 //
 //        public String generateConcessionSummaryPdf(List<ConcessionSummary> summaries) throws Exception {
 //

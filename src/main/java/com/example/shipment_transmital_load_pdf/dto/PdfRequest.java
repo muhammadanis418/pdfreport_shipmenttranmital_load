@@ -1,26 +1,20 @@
 package com.example.shipment_transmital_load_pdf.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-
 import java.util.*;
-
-
 
 public class PdfRequest {
 
-
-    //  private String logoPath;
+//  private String logoPath;
     private String toName;
     private String toAddress;
     private String toContact;
     private String fromName;
     private String fromAddress;
     private String fromEmail;
-//        private String fromContact;
+//  private String fromContact;
 
     private Integer TargetReferenceNo;
-//    private String transmittalNumber;
+    //  private String transmittalNumber;
     private Date date;
 
     private List<ShipmentTableData> tableData = new ArrayList<>();
@@ -98,11 +92,11 @@ public class PdfRequest {
         this.waybill = waybill;
     }
 
-//    public String[][] getTableData() {
+//  public String[][] getTableData() {
 //        return tableData;
 //    }
 //
-//    public void setTableData(String[][] tableData) {
+//  public void setTableData(String[][] tableData) {
 //        this.tableData = tableData;
 //    }
 
@@ -122,12 +116,11 @@ public class PdfRequest {
         this.date = date;
     }
 
-
-//    public Map<Integer, Map<String, Integer>> getTableData() {
+//  public Map<Integer, Map<String, Integer>> getTableData() {
 //        return tableData;
 //    }
 //
-//    public void setTableData(Map<Integer, Map<String, Integer>> tableData) {
+//  public void setTableData(Map<Integer, Map<String, Integer>> tableData) {
 //        this.tableData = tableData;
 //    }
 

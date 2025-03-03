@@ -20,40 +20,13 @@ public class PdfController {
         this.pdfService = pdfService;
     }
 
-    @GetMapping("/check")
-    public String test() {
-        return "Check";
-    }
-
-
     @PostMapping("/reportGeneration")
     public ResponseEntity<byte[]> generatePdf(@RequestBody PdfRequest pdfRequest) throws IOException {
         byte[] pdfBytes = pdfService.generatePdf(
-               // pdfRequest.getLogoPath(),
-
-                pdfRequest.getToName(),
-                pdfRequest.getToAddress(),
-                pdfRequest.getToContact(),
-                pdfRequest.getFromName(),
-                pdfRequest.getFromAddress(),
-                pdfRequest.getFromEmail(),
-                pdfRequest.getTargetReferenceNo(),
-                pdfRequest.getDate(),
-                pdfRequest.getViaNumber(),
-                pdfRequest.getWaybill(),
-                pdfRequest.getTableData(),
-                pdfRequest.getShipmentSummary()
-
-
-
-        );
-
+                // pdfRequest.getLogoPath(),
+                pdfRequest.getToName(), pdfRequest.getToAddress(), pdfRequest.getToContact(), pdfRequest.getFromName(), pdfRequest.getFromAddress(), pdfRequest.getFromEmail(), pdfRequest.getTargetReferenceNo(), pdfRequest.getDate(), pdfRequest.getViaNumber(), pdfRequest.getWaybill(), pdfRequest.getTableData(), pdfRequest.getShipmentSummary());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-  //      headers.setContentDispositionFormData("filename", "report.pdf");
-
-        return ResponseEntity.ok()
-                .headers(headers)
-                .body(pdfBytes);
+        return ResponseEntity.ok().headers(headers).body(pdfBytes);
     }
 }

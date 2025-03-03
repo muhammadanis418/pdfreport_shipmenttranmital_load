@@ -8,15 +8,9 @@ public class ShipmentTableData {
 
    // private Integer number;
     private String mediaType;
-
-
-
     private String numberOfItems;
-
     private String block;
-
     private String fieldSurvey;
-
     private String dataType;
     private String comments;
 
@@ -27,7 +21,6 @@ public class ShipmentTableData {
     public void setMediaType(String mediaType) {
         this.mediaType = mediaType;
     }
-
 
     public String getBlock() {
         return block;

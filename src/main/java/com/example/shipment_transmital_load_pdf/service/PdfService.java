@@ -293,23 +293,4 @@ public class PdfService {
         return byteArrayOutputStream.toByteArray();
     }
 }
-//    public static void someMethod(File file) throws IOException {
-//        // Create a new file name
-//        File newFile = new File("new_example.pdf");
-//
-//        // Copy the original file to the new file
-//        try (FileOutputStream fos = new FileOutputStream(newFile)) {
-//            // Reading the original file's bytes
-//            byte[] fileBytes = java.nio.file.Files.readAllBytes(file.toPath());
-//            fos.write(fileBytes);
-//        }
-//
-//        System.out.println("Original file saved as: " + file.getName());
-//        System.out.println("New file saved as: " + newFile.getName());
-//    }
-//    }
-//    File originalFile = new File("example.pdf");
-//        try (FileOutputStream fos = new FileOutputStream(originalFile)) {
-//        baos.writeTo(fos);
-//    }
 
