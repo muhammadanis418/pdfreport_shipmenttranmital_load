@@ -74,20 +74,14 @@ public class PdfService {
 
         //toTable.addCell("TO:");
         toTable.setWidth(UnitValue.createPercentValue(100));
-        //toTable.setHorizontalAlignment(HorizontalAlignment.LEFT);
         String combinedToInfo = "TO:\n" + toName + "\n" + toAddress + "\n Contact Number: " + toContact;
         toTable.addCell(combinedToInfo);
 
 
         Table fromTable = new Table(new float[]{1});
         fromTable.setWidth(UnitValue.createPercentValue(100));
-        // fromTable.setHorizontalAlignment(HorizontalAlignment.RIGHT);
         String combinedFromInfo = "FROM:\n" + fromName + "\n" + fromAddress + "\n" + fromEmail + "\n" + "\n" + "\n";
         fromTable.addCell(combinedFromInfo);
-//        fromTable.addCell("FROM:");
-//        fromTable.addCell(fromName);
-//        fromTable.addCell(fromAddress);
-//        fromTable.addCell(fromEmail);
 
         Table parentTable = new Table(new float[]{1, 1});
         parentTable.setWidth(UnitValue.createPercentValue(100));
