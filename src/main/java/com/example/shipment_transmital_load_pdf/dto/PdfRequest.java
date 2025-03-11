@@ -4,22 +4,16 @@ import java.util.*;
 
 public class PdfRequest {
 
-//  private String logoPath;
     private String toName;
     private String toAddress;
     private String toContact;
     private String fromName;
     private String fromAddress;
     private String fromEmail;
-//  private String fromContact;
 
     private Integer TargetReferenceNo;
-    //  private String transmittalNumber;
     private Date date;
-
     private List<ShipmentTableData> tableData = new ArrayList<>();
-
-
     private String waybill;
     //private String[][] tableData;
 
@@ -75,14 +69,6 @@ public class PdfRequest {
     public void setFromEmail(String fromEmail) {
         this.fromEmail = fromEmail;
     }
-
-//    public String getFromContact() {
-//        return fromContact;
-//    }
-//
-//    public void setFromContact(String fromContact) {
-//        this.fromContact = fromContact;
-//    }
 
     public String getWaybill() {
         return waybill;

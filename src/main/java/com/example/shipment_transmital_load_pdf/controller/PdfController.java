@@ -23,7 +23,6 @@ public class PdfController {
     @PostMapping("/reportGeneration")
     public ResponseEntity<byte[]> generatePdf(@RequestBody PdfRequest pdfRequest) throws IOException {
         byte[] pdfBytes = pdfService.generatePdf(
-                // pdfRequest.getLogoPath(),
                 pdfRequest.getToName(), pdfRequest.getToAddress(), pdfRequest.getToContact(), pdfRequest.getFromName(), pdfRequest.getFromAddress(), pdfRequest.getFromEmail(), pdfRequest.getTargetReferenceNo(), pdfRequest.getDate(), pdfRequest.getViaNumber(), pdfRequest.getWaybill(), pdfRequest.getTableData(), pdfRequest.getShipmentSummary());
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);

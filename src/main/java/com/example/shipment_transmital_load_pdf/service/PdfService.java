@@ -10,6 +10,7 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TabAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
@@ -36,12 +37,6 @@ public class PdfService {
     @Value("${logo.path}")
     private String logoPath;
 
-//    @Autowired
-//    private FileServiceExt fileServiceExt;
-
-    private static final Logger logger = LoggerFactory.getLogger(PdfService.class);
-
-
     public byte[] generatePdf(String toName, String toAddress, String toContact, String fromName, String fromAddress, String fromEmail, Integer targetReferenceNo, Date date, String viaNumber, String waybill, List<ShipmentTableData> tableData, String shipmentSummary) throws IOException {
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -61,13 +56,6 @@ public class PdfService {
         long dateWithMilliseconds = Long.parseLong(formattedDate);
 
 
-        // Add logo
-//        ImageData imageData = ImageDataFactory.create(logoPath);
-//        Image logo = new Image(imageData);
-//        logo.setHorizontalAlignment(com.itextpdf.layout.property.HorizontalAlignment.CENTER);
-//        document.add(logo);
-
-
         Table toTable = new Table(new float[]{1});
 
         ImageData imageData = null;
@@ -79,7 +67,7 @@ public class PdfService {
         }
         Image logo = new Image(imageData);
 
-        logo.setHorizontalAlignment(com.itextpdf.layout.properties.HorizontalAlignment.CENTER);
+        logo.setHorizontalAlignment(HorizontalAlignment.CENTER);
         logo.setHeight(150);
         logo.setWidth(150);
 
@@ -276,20 +264,6 @@ public class PdfService {
         try (FileOutputStream fos = new FileOutputStream(originalFile)) {
             byteArrayOutputStream.writeTo(fos);
         }
-
-//        JSONObject uploadFmResponse = fileServiceExt.uploadFile(document);
-//        JSONArray jsonArray = (JSONArray) uploadFmResponse.get("files");
-//        JSONObject jsonObject = (JSONObject) jsonArray.getJSONObject(0);
-//        if (originalFile.delete()){
-//            if (originalFile.getParentFile().delete()) {
-//                logger.info("File "+originalFile.getName()+" Removed successfully from "+originalFile.getPath());
-//            }
-//        }
-//        return jsonObject.get("url").toString();
-//
-//
-//
-////        someMethod(originalFile);
         return byteArrayOutputStream.toByteArray();
     }
 }
