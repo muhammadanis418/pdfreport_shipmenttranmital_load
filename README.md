@@ -8,11 +8,11 @@ PDF file generation for shipment Transmital Load
 ## Parameters of Request body
 {
   "toName": "DRDR Office",
-  "toAddress": "Beach Three Building, 0 floor, Office wer, P.O Box: 103, P.C: 000, oooooo, kkkkkk, Sultanate of Oman",
-  "toContact": "+968 24649012",
-  "fromName": "wanwan Malma",
-  "fromAddress": "Operator target",
-  "fromEmail": "wanwan.lilik@rghgetkkk.com",
+  "toAddress": "xyz",
+  "toContact": "1234",
+  "fromName": "xyz",
+  "fromAddress": "xyz",
+  "fromEmail": "test@rghgetkkk.com",
   "targetReferenceNo": "1234",
   "date": "2022-05-20",
   "viaNumber": "",
@@ -26,22 +26,6 @@ PDF file generation for shipment Transmital Load
       "dataType": "Not mention",
       "comments": "Testing phase Started"
     },
-    {
-      "mediaType": "LoadPdfApplication",
-      "numberOfItems": "only for testing purpose",
-      "block": "B",
-      "fieldSurvey": "testing the field",
-      "dataType": "Not mention",
-      "comments": "Testing phase Started"
-    },
-    {
-      "mediaType": "PdfApplication",
-      "numberOfItems": "only for testing purpose",
-      "block": "C",
-      "fieldSurvey": "testing the field",
-      "dataType": "Not mention",
-      "comments": "Testing phase Started"
-    }
   ],
   "shipmentSummary": "we are testing this report by giving dump data. The POM for is missing, no dependency information available even though it exists in maven repository."
 }
