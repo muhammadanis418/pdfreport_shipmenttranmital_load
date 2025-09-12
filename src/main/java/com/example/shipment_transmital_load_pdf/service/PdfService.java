@@ -18,7 +18,11 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -255,8 +259,9 @@ public class PdfService {
 
         try (FileOutputStream fos = new FileOutputStream(originalFile)) {
             byteArrayOutputStream.writeTo(fos);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
         return byteArrayOutputStream.toByteArray();
     }
 
