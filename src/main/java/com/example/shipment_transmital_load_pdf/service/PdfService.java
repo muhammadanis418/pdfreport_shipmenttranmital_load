@@ -14,15 +14,11 @@ import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TabAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -30,6 +26,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
+@Getter
 @Service
 public class PdfService {
 
@@ -255,10 +252,13 @@ public class PdfService {
 
         document.close();
         File originalFile = new File("example.pdf");
+
         try (FileOutputStream fos = new FileOutputStream(originalFile)) {
             byteArrayOutputStream.writeTo(fos);
         }
+
         return byteArrayOutputStream.toByteArray();
     }
+
 }
 
