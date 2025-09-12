@@ -5,20 +5,26 @@ import com.example.shipment_transmital_load_pdf.service.PdfService;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestConstructor;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.ArrayList;
 import java.util.Date;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
+@TestPropertySource(properties = "logo.path=src/test/resources/logo.jpg")
+@TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 class ShipmentTransmitalLoadPdfApplicationTests {
 
-    @InjectMocks
-    private PdfService pdfService;
+
+    private final PdfService pdfService;
+
+    public ShipmentTransmitalLoadPdfApplicationTests(PdfService pdfService) {
+        this.pdfService = pdfService;
+    }
 
     @Test
     void contextLoads() {
@@ -33,35 +39,41 @@ class ShipmentTransmitalLoadPdfApplicationTests {
             Date date = new Date();
             String viaNumber = "123";
             String waybill = "123";
-            ArrayList<ShipmentTableData> tableData = new ArrayList<>();
-
-            ShipmentTableData rowOne = new ShipmentTableData();
-            rowOne.setMediaType("Started");
-            rowOne.setNumberOfItems("for testing purpose");
-            rowOne.setBlock("A");
-            rowOne.setFieldSurvey("testing the field");
-            rowOne.setDataType("Not mention");
-            rowOne.setComments("Testing phase Started");
-
-            ShipmentTableData rowTwo = new ShipmentTableData();
-            rowTwo.setMediaType("Started");
-            rowTwo.setNumberOfItems("for testing purpose");
-            rowTwo.setBlock("B");
-            rowTwo.setFieldSurvey("testing the field");
-            rowTwo.setDataType("Not mention");
-            rowTwo.setComments("Testing phase Started");
-
-            tableData.add(rowOne);
-            tableData.add(rowTwo);
-
+            ArrayList<ShipmentTableData> tableData = getShipmentTableData();
 
             String shipmentSummary = "we are testing this report by giving dump data.The POM for is missing, no dependency information available even though it exists in maven repository.";
+            assertThat(pdfService.getLogoPath()).isEqualTo("src/test/resources/logo.jpg");
+           // System.out.println("logo.path injected: " + pdfService.getLogoPath());
+
             pdfService.generatePdf(toName, toAddress, toContact, fromName, fromAddress, fromEmail, targetReferenceNo, date, viaNumber, waybill, tableData, shipmentSummary);
 
 
-        }
-        catch(IOException ioe){
+        } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
+    }
+
+    private static ArrayList<ShipmentTableData> getShipmentTableData() {
+        ArrayList<ShipmentTableData> tableData = new ArrayList<>();
+
+        ShipmentTableData rowOne = new ShipmentTableData();
+        rowOne.setMediaType("Inserting first dump row");
+        rowOne.setNumberOfItems("testing-1");
+        rowOne.setBlock("D");
+        rowOne.setFieldSurvey("field dump");
+        rowOne.setDataType("Random data");
+        rowOne.setComments("Testing phase Started");
+
+        ShipmentTableData rowTwo = new ShipmentTableData();
+        rowTwo.setMediaType("Inserting Second dump row");
+        rowTwo.setNumberOfItems("testing-2");
+        rowTwo.setBlock("U");
+        rowTwo.setFieldSurvey("field dump");
+        rowTwo.setDataType("Raw data");
+        rowTwo.setComments("Nil");
+
+        tableData.add(rowOne);
+        tableData.add(rowTwo);
+        return tableData;
     }
 }

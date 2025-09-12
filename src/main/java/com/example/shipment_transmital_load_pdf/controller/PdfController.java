@@ -14,7 +14,7 @@ import java.io.IOException;
 @RequestMapping("/pdf")
 public class PdfController {
 
-    private PdfService pdfService;
+    private final PdfService pdfService;
 
     public PdfController(PdfService pdfService) {
         this.pdfService = pdfService;
